@@ -1,9 +1,23 @@
-MINIMUM_LENGTH = 4
+"""
+Password into stars
+"""
 
-password = input("Enter Password: ")
+import random
 
-while len(password) < minimum_length:
-    print("Password too short please try again")
-    password = input("Enter Password: ")
+minimum_length = random.randint(1, 10)
 
-print("*" * len(password))
+
+def get_password():
+    password = input("Enter a password: ")
+    return password
+
+
+def check_length(password):
+    while len(password) < minimum_length:
+        print("Password is too short. Minimum length is", minimum_length)
+        password = get_password()
+    print("*" * len(password))
+
+
+password = get_password()
+check_length(password)
